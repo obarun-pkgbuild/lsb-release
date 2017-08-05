@@ -1,0 +1,12 @@
+post_install() {
+  echo "Obarun Linux release" >> /etc/obarun-release
+}
+
+post_upgrade() {
+  sed -e "/Obarun Linux release/d" -i /etc/obarun-release
+  echo "Obarun Linux release" >> /etc/obarun-release
+}
+
+pre_remove() {
+  sed -e "/Obarun Linux release/d" -i /etc/obarun-release
+}
